@@ -1,0 +1,10 @@
+Flask==2.2.3
+Flask-Cors==4.0.0
+Flask-SocketIO==5.3.4
+joblib==1.2.0
+pandas==2.1.4
+sklearn==0.0.post5
+matplotlib==3.8.2
+folium==0.16.0
+geopandas==0.14.3
+geopy==2.4.1
