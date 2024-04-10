@@ -101,4 +101,28 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+    let postalCodeButton = document.getElementById('postal_code_button');
+    postalCodeButton.addEventListener('click', function() {
+        let postalCode = document.getElementById('postal_code').value;
+        console.log(postalCode);
+        fetch('http://localhost:5000/map', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({postalCode: postalCode})
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log(data);
+            window.location.href = 'map.html';
+        })
+        .catch(error => console.error('Erreur :', error));
+    });
 });
+
